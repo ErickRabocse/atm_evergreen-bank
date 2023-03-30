@@ -24,6 +24,7 @@ function greetingMessage() {
 greetingMessage();
 
 //ATM LOGIC
+let movementNotification = document.querySelector(".notification");
 let balance = document.querySelector(".section__balance--input");
 let depositBtn = document.querySelector(".section__deposit");
 let drawBtn = document.querySelector(".section__withdrawal");
@@ -56,19 +57,32 @@ function add(e) {
   //   e.preventDefault();
   let depositBox = document.querySelector(".section__deposit--input");
   let deposit = document.querySelector(".section__deposit--input").value;
-  account1.add(deposit);
-  depositBox.value = "";
-  balance.value = account1.details();
-  return;
+
+  if (Number(account1.details()) + Number(deposit) <= 990) {
+    account1.add(deposit);
+    balance.value = account1.details();
+    movementNotification.innerText = `You made a deposit of ${deposit} pesos.`;
+    depositBox.value = "";
+    return;
+  } else {
+    movementNotification.innerText = `Your balance cannot exceed 990 pesos.`;
+    depositBox.value = "";
+  }
 }
 function reduce(e) {
   //   e.preventDefault();
   let drawBox = document.querySelector(".section__withdrawal--input");
   let draw = document.querySelector(".section__withdrawal--input").value;
-  account1.rest(draw);
-  drawBox.value = "";
-  balance.value = account1.details();
-  return;
+
+  if (account1.details() <= 10) {
+    movementNotification.innerText = `You balance cannot be less than 10 pesos.`;
+  } else {
+    account1.rest(draw);
+    drawBox.value = "";
+    balance.value = account1.details();
+    movementNotification.innerText = `You made a withdrawal of ${draw} pesos.`;
+    return;
+  }
 }
 
 depositBtn.addEventListener("click", add);

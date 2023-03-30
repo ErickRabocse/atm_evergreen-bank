@@ -64,3 +64,9 @@ body {
   background: linear-gradient(to right, rgba(29, 74, 46, 0.6), rgb(29, 74, 46));
   color: white;
 }
+
+.notification {
+  grid-column: span 2;
+  font-size: 15px;
+  text-shadow: 2px 2px 15px rgba(55, 0, 205, 0.6);
+}
