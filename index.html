@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,400;1,200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="header__h1">Evergreen Bank</h1>
+        <h2 class="header__h2">Your money is safe with us</h2>
+      </header>
+
+      <section class="container">
+        <form class="form" action="">
+          <label class="form__label" for="username">Username</label>
+          <input
+            class="form__input form__username"
+            type="text"
+            name="username"
+          />
+          <span class="username__error hide">Incorrect username</span>
+          <br />
+          <label class="form__label" for="password">Password</label>
+          <input
+            class="form__input form__password"
+            type="password"
+            name="password"
+          />
+          <span class="password__error hide">Incorrect password</span>
+          <br />
+          <button class="form__btn" type="submit">Log in</button>
+        </form>
+      </section>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
