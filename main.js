@@ -1,5 +1,25 @@
-const userCheck = "erick";
-const passwordCheck = "111";
+const users = [
+  {
+    userCheck: "erick",
+    passCheck: "001",
+  },
+  {
+    userCheck: "tatto",
+    passCheck: "002",
+  },
+  {
+    userCheck: "kuma",
+    passCheck: "003",
+  },
+  {
+    userCheck: "hana",
+    passCheck: "004",
+  },
+  {
+    userCheck: "guri",
+    passCheck: "005",
+  },
+];
 const form = document.querySelector(".form");
 
 function showError(typeOfError) {
@@ -29,19 +49,17 @@ let submit = (evento) => {
 };
 
 let validar = (us, pass) => {
-  if (us === userCheck && pass === passwordCheck) {
-    console.log("Welcome!");
-    return true;
-  } else if (us !== userCheck && pass === passwordCheck) {
-    showError("username");
-    return;
-  } else if (pass !== passwordCheck && us === userCheck) {
-    showError("password");
-    return;
-  } else {
-    showError("username");
-    showError("password");
-    return;
+  for (let i = 0; i < users.length; i++) {
+    if (us === users[i].userCheck && pass === users[i].passCheck) {
+      console.log("Welcome!");
+      return true;
+    } else if (us !== users[i].userCheck && pass === users[i].passCheck) {
+      showError("username");
+      break;
+    } else if (pass !== users[i].passCheck && us === users[i].userCheck) {
+      showError("password");
+      break;
+    }
   }
 };
 
