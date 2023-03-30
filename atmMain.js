@@ -1,9 +1,29 @@
 //GREETING LOGIC
-const partOfDay = document.querySelector(".header__dayTime");
-console.log(partOfDay);
+const partOfDay = document.querySelector(".header");
+
+//JS TIME TELLER
+const options = {
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
+  timeZone: "America/Mexico_City",
+};
+let formatter = new Intl.DateTimeFormat([], options);
+let currentTime = formatter.format(new Date()).toString().slice(0, 2);
+
+//GREETING LOGIC
+function greetingMessage() {
+  if (currentTime < 12) {
+    partOfDay.innerText = "Good morning";
+  } else if (currentTime >= 12 && currentTime <= 19) {
+    partOfDay.innerText = "Good afternoon";
+  } else if (currentTime > 19) {
+    partOfDay.innerText = "Good evening";
+  }
+}
+greetingMessage();
 
 //ATM LOGIC
-
 let balance = document.querySelector(".section__balance--input");
 let depositBtn = document.querySelector(".section__deposit");
 let drawBtn = document.querySelector(".section__withdrawal");
