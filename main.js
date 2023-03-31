@@ -24,7 +24,6 @@ const form = document.querySelector(".form");
 
 function showError(typeOfError) {
   let error = document.querySelector(`.${typeOfError}__error `);
-
   error.classList.remove("hide");
   error.classList.add("error");
   setTimeout(() => {
