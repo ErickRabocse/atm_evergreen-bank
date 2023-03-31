@@ -74,13 +74,16 @@ function reduce(e) {
   let drawBox = document.querySelector(".section__withdrawal--input");
   let draw = document.querySelector(".section__withdrawal--input").value;
 
-  if (account1.details() <= 10) {
+  if (balance.value - draw <= 10) {
     movementNotification.innerText = `You balance cannot be less than 10 pesos.`;
+    drawBox.value = "";
+    return;
   } else {
     account1.rest(draw);
     drawBox.value = "";
     balance.value = account1.details();
     movementNotification.innerText = `You made a withdrawal of ${draw} pesos.`;
+    drawBox.value = "";
     return;
   }
 }
