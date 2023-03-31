@@ -74,7 +74,7 @@ function reduce(e) {
   let drawBox = document.querySelector(".section__withdrawal--input");
   let draw = document.querySelector(".section__withdrawal--input").value;
 
-  if (balance.value - draw <= 10) {
+  if (balance.value - draw < 10) {
     movementNotification.innerText = `You balance cannot be less than 10 pesos.`;
     drawBox.value = "";
     return;
