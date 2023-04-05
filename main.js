@@ -2,22 +2,27 @@ const users = [
   {
     userCheck: "erick",
     passCheck: "001",
+    money: 50,
   },
   {
     userCheck: "tatto",
     passCheck: "002",
+    money: 50,
   },
   {
     userCheck: "kuma",
     passCheck: "003",
+    money: 50,
   },
   {
     userCheck: "hana",
     passCheck: "004",
+    money: 50,
   },
   {
     userCheck: "guri",
     passCheck: "005",
+    money: 50,
   },
 ];
 const form = document.querySelector(".form");
@@ -50,7 +55,9 @@ let submit = (evento) => {
 let validar = (us, pass) => {
   for (let i = 0; i < users.length; i++) {
     if (us === users[i].userCheck && pass === users[i].passCheck) {
-      console.log("Welcome!");
+      localStorage.setItem("user", users[i].userCheck);
+      localStorage.setItem("money", users[i].money);
+      // console.log("Welcome!");
       return true;
     } else if (us !== users[i].userCheck && pass === users[i].passCheck) {
       showError("username");
